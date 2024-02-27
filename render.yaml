@@ -2,19 +2,20 @@ services:
   - type: web
     name: tp-render-node
     env: node
+    region: frankfurt
     plan: free
-    buildCommand: yarn
-    startCommand: yarn start
+    branch: main
+    buildCommand: npm install
+    startCommand: npm run start
     envVars:
       - key: DB_URL
         fromDatabase:
           name: tp-render-node-db
           property: connectionString
 
-
-
 databases:
   - name: tp-render-node-db
+    region: frankfurt
     plan: free
  
     
